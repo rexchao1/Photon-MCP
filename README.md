@@ -16,17 +16,20 @@ stand up. You bring your own API credentials and it acts on your behalf.
 
 ## Quickstart
 
+This Quickstart command is for **Claude Code (CLI)**. Using Claude Desktop instead? Skip
+to [Configure your client](#configure-your-client) 
+
 You need Python 3.10 or newer and a set of Photon API credentials
 ([get them below](#get-credentials)).
 
 ```bash
-claude mcp add photon -- uvx photon-mcp \
-  -e PHOTON_CLIENT_ID=... \
+claude mcp add photon -e PHOTON_CLIENT_ID=... \
   -e PHOTON_SECRET_KEY=... \
   -e PHOTON_USERNAME=you@example.com \
   -e PHOTON_API_KEY=... \
   -e PHOTON_PASSWORD=... \
-  -e PHOTON_ALLOWED_DIRS=/Users/you/Documents/invoices
+  -e PHOTON_ALLOWED_DIRS=/Users/you/Documents/invoices \
+  -- uvx photon-mcp
 ```
 
 Then just ask for what you want — *"pull the totals out of
@@ -43,8 +46,11 @@ curl -X POST https://sandbox-api.photoncommerce.com/api/v4/register \
 ```
 
 You get back a `client_id`, `api_key`, `secret_key` and `username`. Those plus your
-password are the five values the server needs. Sandbox accounts include 20 pages over 14
-days. For a production account, email <api@photoncommerce.com>.
+password are the five values the server needs. Sandbox accounts include 20 documents over
+15 days. The first 3 process straight away; to process the remaining 17, verify your
+account with Photon Commerce.
+
+For a production account, email <api@photoncommerce.com>.
 
 ## Configure your client
 

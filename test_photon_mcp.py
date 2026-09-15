@@ -422,7 +422,7 @@ class TestToolLayer:
         handler = json_route({"message": "The free trial includes 20 pages"}, 403)
         server._client = build_client(handler)
         result = server.get_extraction("k")
-        assert "sales@photoncommerce.com" in result["hint"]
+        assert "api@photoncommerce.com" in result["hint"]
 
     def test_corrections_require_fields(self):
         assert server.correct_fields("k", {})["ok"] is False

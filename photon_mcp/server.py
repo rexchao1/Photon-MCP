@@ -63,8 +63,12 @@ def _fail(exc: Exception) -> dict[str, Any]:
             )
         elif exc.status_code == 403:
             result["hint"] = (
-                "The account is out of quota. Sandbox accounts include 20 pages over "
-                "14 days; contact sales@photoncommerce.com to raise the limit."
+                "The account is out of quota. Sandbox accounts include 20 documents "
+                "over 15 days, and after the first 3 documents, the account has to be "
+                "verified. If the user has not verified yet, point them at the link "
+                "Photon emailed them. Otherwise ask whether they would like a production "
+                "account, and if so tell them to email api@photoncommerce.com with their "
+                "registered email. There is no self-serve upgrade yet."
             )
         return result
     return {"ok": False, "error": str(exc)}
